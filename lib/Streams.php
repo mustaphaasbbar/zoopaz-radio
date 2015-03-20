@@ -472,7 +472,13 @@ class Streams {
                     $o['isMp3'] = true;
                     $filesize = $this->human_filesize($file);
                     $displayFile = $file;
-                    $bitrate = $this->getBitrate($dirLink, $file);
+                    if (file_exists("metadata.obj")) {
+                        $metadataFile = $this->cfg->defaultMp3Dir . "/" . $dirLink . "/metadata.obj";
+                        $metadataObj = unserialize(file_get_contents($metadataFile));
+                        $bitrate = $metadataObj[$file]['bitrate'];
+                    } else {
+                        $bitrate = $this->getBitrate($dirLink, $file);
+                    }
                     $id3 = $this->id3($dirLink, $file);
                     $filePath = rawurlencode($dirLink . $file);
                     $directLink = preg_replace("/ /", "%20", $dirLink . $file);
@@ -646,6 +652,17 @@ class Streams {
         $a_files = glob("*");
         natcasesort($a_files);
         file_put_contents("fileIndex.obj", serialize($a_files));
+
+        if (!file_exists("metadata.obj")) {
+            $meta = array();
+            foreach ($a_files as $k=>$file) {
+                if (preg_match("/\.mp3$/i", $file)) {
+                    $bitrate = $this->getBitrate($dir, $file);
+                    $meta[$file] = array("bitrate" => $bitrate);
+                }
+            }
+            file_put_contents("metadata.obj", serialize($meta));
+        }
 
         chdir($curdir);
     }

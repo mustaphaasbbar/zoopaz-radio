@@ -688,6 +688,8 @@ function getHashValue(action) {
 
 isRadioMode = false;
 $(document).ready(function(){
+    FastClick.attach(document.body);
+
     init();
 
     $(window).on("hashchange", function() {
