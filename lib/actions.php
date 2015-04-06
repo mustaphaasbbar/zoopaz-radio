@@ -74,6 +74,37 @@ if ($_GET['action'] == "downloadAlbum" && $_GET['dir'] != "") {
         }
         die();
     }
+} else if ($_GET['action'] === "downloadPlaylist") {
+    $musicTmpDir = "{$cfg->tmpDir}/streamsTmpDir/{$auth->username}/myplaylist";
+    if (!file_exists($musicTmpDir)) {
+        mkdir($musicTmpDir, 0777, true);
+    }
+
+    $currentPlaylist = json_decode(file_get_contents($auth->currentPlaylist), true);
+    foreach ($currentPlaylist as $item) {
+        $fullPath = "{$cfg->defaultMp3Dir}{$item['dir']}";
+        $fullPathToFile = "{$cfg->defaultMp3Dir}{$item['dir']}/{$item['file']}";
+        if (!copy($fullPathToFile, "{$musicTmpDir}/{$item['file']}")) {
+            die("Could not process request. Click back to return to your music.");
+        }
+    }
+
+    $curdir = getcwd();
+    chdir("{$cfg->tmpDir}/streamsTmpDir/{$auth->username}");
+    exec("zip -r myplaylist.zip myplaylist");
+
+    header('Content-Description: Download playlist');
+    header("Content-type: application/x-download");
+    header("Content-Length: " . filesize("{$cfg->tmpDir}/streamsTmpDir/{$auth->username}/myplaylist.zip"));
+    header("Content-Disposition: attachment; filename=" . basename("myplaylist.zip"));
+    header('Content-Transfer-Encoding: binary');
+    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+    header('Expires: 0');
+    header('Pragma: public');
+    readfile("{$cfg->tmpDir}/streamsTmpDir/{$auth->username}/myplaylist.zip");
+
+    exec("rm -Rf {$cfg->tmpDir}/streamsTmpDir/{$auth->username}");
+    die();
 } else if ($_GET['action'] == "download") {
     $filename = preg_replace("/^.*\/(.*)$/i", "$1", $_GET['file']);
     header("Content-type: applications/x-download");

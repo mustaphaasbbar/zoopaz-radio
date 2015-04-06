@@ -1220,7 +1220,7 @@ class Streams {
         $js_directMusicUrl = "{$this->cfg->defaultMp3Url}/{$enc_dir}/{$enc_file}";
         $id3 = $this->id3($dir, $file);
 
-        $playlist = array("mp3"=>$js_directMusicUrl, "title"=>$this->buildPlaylistTitle($id3, $dir, $file));
+        $playlist = array("mp3"=>$js_directMusicUrl, "title"=>$this->buildPlaylistTitle($id3, $dir, $file), "dir"=>$dir, "file"=>$file);
         return $playlist;
     }
 

@@ -149,6 +149,8 @@ if ($_GET['action'] == "createPlaylistJs") {
 } else if ($_GET['action'] == "saveVolume") {
     print($streams->saveVolume($_GET['volume']));
     die();
+} else if ($_GET['action'] == "downloadPlaylist") {
+    die();
 } else {
     die("Unused action.");
 }
