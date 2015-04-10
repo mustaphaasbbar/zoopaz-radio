@@ -151,6 +151,9 @@ if ($_GET['action'] == "createPlaylistJs") {
     die();
 } else if ($_GET['action'] == "downloadPlaylist") {
     die();
+} else if ($_GET['action'] == "removeFromPlaylist") {
+    print($streams->removeFromPlaylist($_GET['dir'], $_GET['file']));
+    die();
 } else {
     die("Unused action.");
 }

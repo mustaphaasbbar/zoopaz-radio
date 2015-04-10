@@ -81,6 +81,14 @@
                     // TODO(k92j9f): This instance is for radio mode because the play event doesn't fire.
                     setPlayTimeout();
                 }
+
+                $(".jp-playlist-item-remove").on("click", function() {
+                    var dir = $(this).siblings(".jp-playlist-item").children("img").data("dir");
+                    var file = $(this).siblings(".jp-playlist-item").children("img").data("file");
+                    $.getJSON("ajax.php?action=removeFromPlaylist&dir=" + encodeURIComponent(dir) + "&file=" + encodeURIComponent(file), function(data) {
+                        //console.log("Removing: " + JSON.stringify(data));
+                    });
+                });
             },
             play: function() {
                 if (isRadioMode) {

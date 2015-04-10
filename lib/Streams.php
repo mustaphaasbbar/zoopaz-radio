@@ -1343,6 +1343,21 @@ class Streams {
         return json_encode($o);
     }
 
+    public function removeFromPlaylist($dir, $file) {
+        //$auth->currentPlaylist = $auth->userDir . "/currentPlaylist.obj";
+        $playlist = json_decode(file_get_contents($this->auth->currentPlaylist), true);
+        $newPlaylist = array();
+        foreach ($playlist as $k=>$item) {
+            if ($item['dir'] === $dir && $item['file'] === $file) {
+                unset($playlist[$k]);
+            } else {
+                array_push($newPlaylist, $item);
+            }
+        }
+        file_put_contents($this->auth->currentPlaylist, json_encode($newPlaylist));
+        return json_encode(array());
+    }
+
     public function addToPersonalRadio($dir, $station=null) {
         $dir = $this->singleSlashes($dir);
         $indexer = new StreamsSearchIndexer($this->cfg, $this->auth);
