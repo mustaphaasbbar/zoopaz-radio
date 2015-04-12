@@ -686,6 +686,11 @@ function getHashValue(action) {
     }
 }
 
+function setControlsFixSize() {
+    $("#musicwrapper").css("margin-top", 32 + $(".controls-wrapper").height() + "px");   
+    $(".controls-wrapper").css("width", $("#content").width() + "px");
+}
+
 isRadioMode = false;
 $(document).ready(function(){
     FastClick.attach(document.body);
@@ -904,5 +909,19 @@ $(document).ready(function(){
 //                    //+ encodeURIComponent(percent), function(json) { });
 //        });
 //    });
+
+    $("#play-my-radio, #save-my-radio, #view-my-radio-stations-button").livequery(function() {
+        setControlsFixSize();
+    });
+
+    $("#musicwrapper").livequery(function() {
+        setControlsFixSize();
+    });
+
+    $("#musicwrapper").livequery(function() {
+        $(window).resize(function() {
+            setControlsFixSize();
+        }); 
+    });
 
 });

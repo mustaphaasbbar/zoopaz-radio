@@ -625,3 +625,10 @@ code.filesize {
 code.bitrate {
     color:#3181b7;
 }
+
+.controls-wrapper {
+    position:fixed;
+    background-color:white;
+    opacity:0.95;
+    z-index:1024;
+}

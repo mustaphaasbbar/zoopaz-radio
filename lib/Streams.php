@@ -80,9 +80,9 @@ class Streams {
             $a_tmpl['enc_cover'] = $enc_cover;
             $this->t->setData(array("enc_cover"=>$enc_cover));
             $this->t->setFile("{$this->cfg->streamsRootDir}/tmpl/coverArt.tmpl");
-            $pageContent = $this->t->compile();
+            $coverart = $this->t->compile();
         }
-        $pageContent .= $this->getFileIndex($dir);
+        $pageContent .= $this->getFileIndex($dir, $coverart);
         return $pageContent;
     }
 
@@ -676,7 +676,7 @@ class Streams {
     /**
      * @tested true
      */
-    public function getFileIndex ($dir) {
+    public function getFileIndex ($dir, $coverart=null) {
         $dir = $this->singleSlashes($dir);
 
         $curdir = getcwd();
@@ -757,7 +757,7 @@ class Streams {
 
         $searchBox = $this->buildSearchBox();
 
-        $this->t->setData(array("searchBox" => $searchBox, "controls" => $controls, "index" => $index));
+        $this->t->setData(array("searchBox" => $searchBox, "controls" => $controls, "coverart" => $coverart, "index" => $index));
         $this->t->setFile("{$this->cfg->streamsRootDir}/tmpl/fileIndex.tmpl");
         $index = $this->t->compile();
 
