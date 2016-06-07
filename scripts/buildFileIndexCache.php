@@ -33,7 +33,7 @@ $streams = new Streams($cfg, $auth, $t);
 $curdir = getcwd();
 chdir($cfg->defaultMp3Dir);
 
-$hash = sha1(microtime() . date());
+$hash = sha1(microtime() . date("U"));
 
 exec("find . -type d > {$hash}.tmp");
 

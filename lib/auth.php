@@ -27,10 +27,27 @@ if ($_GET['action'] == "login" && $auth->tries > $auth->maxTries) {
     exit();
 }
 
+/**
+ * Users can have multiple passwords. I know this is crazy.
+ */
+function validateUser($hashFunction, $postPassword, $actualPassword) {
+    if (is_array($actualPassword)) {
+        foreach ($actualPassword as $password) {
+            if ($hashFunction($postPassword) === $password) {
+                return true;
+            }
+        }
+        return false;
+    } else {
+        return $hashFunction($postPassword) === $actualPassword;
+    }
+}
+
 if ($_GET['action'] == "login") {
     if (array_key_exists($_POST['username'], $auth->users)) {
         $hashFunction = $cfg->hashFunction;
-        if ($hashFunction($_POST['password']) == $auth->users[$_POST['username']]) {
+        //if ($hashFunction($_POST['password']) == $auth->users[$_POST['username']]) {
+        if (validateUser($hashFunction, $_POST['password'], $auth->users[$_POST['username']])) {
             // Set session login variables.
             if (!file_exists("sessions/users")) {
                 mkdir("sessions/users");
