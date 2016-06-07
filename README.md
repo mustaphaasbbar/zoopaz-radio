@@ -49,7 +49,7 @@ See [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0.html), [`LICE
 Dependencies
 ============
 
-* PHP 5.3+
+* PHP 5.3+ (PHP 7 supported, but not throughly tested as of 2016-06-05)
 * Webserver with PHP support. Apache2 recommended.
 * Flash or HTML5 capable web browser.
 * UNIX tools. These are required to build search and radio indexes as well as cover art. These portions of the application are managed from the command line. In the future they may move into the application.
