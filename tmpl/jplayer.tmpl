@@ -2,23 +2,23 @@
     <div class="jp-type-single">
         <div class="jp-gui jp-interface">
             <div class="jp-controls">
-                <a href="javascript:;" class="jp-play" tabindex="1" title="play"></a>
-                <a href="javascript:;" class="jp-pause" tabindex="1" title="pause"></a>
-                <a href="javascript:;" class="jp-stop" tabindex="1" title="stop"></a>
-                <a href="javascript:;" class="jp-previous" tabindex="1" title="previous track"></a>
-                <a href="javascript:;" class="jp-next" tabindex="1" title="next track"></a>
+                <a href="javascript:;" class="jp-play" tabindex="1" title="play"><span class="fa fa-play"></span></a>
+                <a href="javascript:;" class="jp-pause" tabindex="1" title="pause"><span class="fa fa-pause"></span></a>
+                <a href="javascript:;" class="jp-stop" tabindex="1" title="stop"><span class="fa fa-stop"></span></a>
+                <a href="javascript:;" class="jp-previous" tabindex="1" title="previous track"><span class="fa fa-backward"></span></a>
+                <a href="javascript:;" class="jp-next" tabindex="1" title="next track"><span class="fa fa-forward"></span></a>
                 <span class="jp-toggles">
-                    <a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat"></a>
-                    <a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off"></a>
-                    <a href="javascript:;" class="jp-shuffle" tabindex="1" title="shuffle"></a>
-                    <a href="javascript:;" class="jp-shuffle-off" tabindex="1" title="shuffle off"></a>
+                    <a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat"><span class="fa fa-repeat"></span></a>
+                    <a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off"><span class="fa fa-repeat"></span></a>
+                    <a href="javascript:;" class="jp-shuffle" tabindex="1" title="shuffle"><span class="fa fa-random"></span></a>
+                    <a href="javascript:;" class="jp-shuffle-off" tabindex="1" title="shuffle off"><span class="fa fa-random"></span></a>
                 </span>
-                <a href="javascript:;" class="jp-mute" tabindex="1" title="mute"></a>
-                <a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute"></a>
+                <a href="javascript:;" class="jp-mute" tabindex="1" title="mute"><span class="fa fa-volume-down"></span></a>
+                <a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute"><span class="fa fa-volume-off"></span></a>
                 <div class="jp-volume-bar">
                     <div class="jp-volume-bar-value"></div>
                 </div>
-                <a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume"></a>
+                <a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume"><span class="fa fa-volume-up"></span></a>
                 <div class="clear"></div>
             </div>
             <div class="jp-time-holder">
@@ -53,6 +53,12 @@
     </div>
 </div>
 <script type="text/javascript">
+    $(document).ready(function () {
+        $("body").append("<button class='playme'>playme</button>");
+        $(document).on("click", ".playme", function () {
+            $("#mediaplayer").jPlayer("playHead", 50);
+        });
+    });
     myPlaylist = new jPlayerPlaylist(
         {
             jPlayer: "#mediaplayer",

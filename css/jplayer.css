@@ -214,52 +214,58 @@ a.jp-playlist-item:hover {
 */
 
 
-.jp-play, .jp-pause, .jp-stop, .jp-previous, .jp-next, .jp-toggles, .jp-repeat, .jp-repeat-off, .jp-shuffle, .jp-shuffle-off, .jp-mute, .jp-unmute, .jp-volume-max {
+.jp-play, .jp-pause, .jp-stop, .jp-previous, .jp-next, .jp-toggles, .jp-repeat, .jp-repeat-off, .jp-shuffle, .jp-shuffle-off, .jp-mute, .jp-unmute, .jp-volume-max
+.jp-play span, .jp-pause span, .jp-stop span, .jp-previous span, .jp-next span, .jp-toggles span, .jp-repeat span, .jp-repeat-off span, .jp-shuffle span, .jp-shuffle-off span, .jp-mute span, .jp-unmute span, .jp-volume-max span {
     width:32px;
     height:32px;
     background-repeat:no-repeat;
+    color:#3181b7;
 }
 
-.jp-play {
-    background-image:url('../images/player/play.png');
+.jp-play, .jp-play span {
+    color:#3181b7;
+    /* background-image:url('../images/player/play.png');*/
 }
 .jp-pause {
-    background-image:url('../images/player/pause.png');
+    /* background-image:url('../images/player/pause.png'); */
 }
-.jp-stop {
-    background-image:url('../images/player/stop.png');
-}
-.jp-previous {
-    background-image:url('../images/player/previous.png');
+.jp-stop, .jp-stop span {
+    /* background-image:url('../images/player/stop.png');*/
 }
 .jp-next {
-    background-image:url('../images/player/forward.png');
+    /* background-image:url('../images/player/forward.png'); */
 }
 .jp-previous {
-    background-image:url('../images/player/back.png');
+    /* background-image:url('../images/player/back.png'); */
 }
 .jp-toggles {
 }
 .jp-repeat {
-    background-image:url('../images/player/repeat.png');
+    /* background-image:url('../images/player/repeat.png'); */
+    opacity:0.5;
 }
 .jp-repeat-off {
-    background-image:url('../images/player/repeat-off.png');
+    /* background-image:url('../images/player/repeat-off.png'); */
+    opacity:1;
 }
 .jp-shuffle {
-    background-image:url('../images/player/shuffle.png');
+    /* background-image:url('../images/player/shuffle.png'); */
+    opacity:0.5;
 }
 .jp-shuffle-off {
-    background-image:url('../images/player/shuffle-off.png');
+    /* background-image:url('../images/player/shuffle-off.png'); */
+    opacity:1;
 }
 .jp-mute {
-    background-image:url('../images/player/mute-off.png');
+    /* background-image:url('../images/player/mute-off.png'); */
+    opacity:0.5;
 }
 .jp-unmute {
-    background-image:url('../images/player/mute.png');
+    /* background-image:url('../images/player/mute.png'); */
+    opacity:1;
 }
 .jp-volume-max {
-    background-image:url('../images/player/volume-level-3.png');
+    /* background-image:url('../images/player/volume-level-3.png'); */
 }
 .jp-playlist-toggle {
     width:32px;

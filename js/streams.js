@@ -114,6 +114,7 @@ function doOpenDir(url) {
                 }
             } else {
                 $("#content").html(html);
+                $("html").scrollTop();
             }
             hideWorking();
         }
