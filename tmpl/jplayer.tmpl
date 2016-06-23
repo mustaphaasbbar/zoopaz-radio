@@ -53,12 +53,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("body").append("<button class='playme'>playme</button>");
-        $(document).on("click", ".playme", function () {
-            $("#mediaplayer").jPlayer("playHead", 50);
-        });
-    });
     myPlaylist = new jPlayerPlaylist(
         {
             jPlayer: "#mediaplayer",
@@ -95,14 +89,21 @@
                         //console.log("Removing: " + JSON.stringify(data));
                     });
                 });
+
+                $(document).ready(function () {
+                    $("body").append("<button class='playme'>playme</button>");
+                    $(document).on("click", ".playme", function () {
+                        $("#mediaplayer").jPlayer("playHead", 50);
+                    });
+                });
             },
             play: function() {
                 if (isRadioMode) {
                     //alert('in radio mode');
-                    console.log("radio on: Playlist size: " + myPlaylist.playlist.length + ", Current position: " + myPlaylist.current);
+                    //console.log("radio on: Playlist size: " + myPlaylist.playlist.length + ", Current position: " + myPlaylist.current);
                 } else {
                     //alert('not in radio mode');
-                    console.log("radio off: Playlist size: " + myPlaylist.playlist.length + ", Current position: " + myPlaylist.current);
+                    //console.log("radio off: Playlist size: " + myPlaylist.playlist.length + ", Current position: " + myPlaylist.current);
                 }
 
                 // TODO(k92j9f): This instance is for normal non-radio mode because the play event doesn't fire in radio mode.
