@@ -573,15 +573,15 @@ class Streams {
      * @tested true
      */
     public function getAlbumArt($id3, $dir=null) {
-        if (isset($id3) && isset($id3['comments']) && isset($id3['comments']['picture'])
+        if (file_exists("{$this->cfg->defaultMp3Dir}/{$dir}/small_cover.jpg")) {
+            $albumart = "{$this->cfg->defaultMp3Url}/{$dir}/small_cover.jpg";
+        } else if (isset($id3) && isset($id3['comments']) && isset($id3['comments']['picture'])
                 && isset($id3['comments']['picture'][0]) && isset($id3['comments']['picture'][0]['data'])) {
             $albumart = "data:image/jpeg;base64," . base64_encode($id3['comments']['picture'][0]['data']);
+        } else if (file_exists("{$this->cfg->defaultMp3Dir}/{$dir}/cover.jpg")) {
+            $albumart = "{$this->cfg->defaultMp3Url}/{$dir}/cover.jpg";
         } else {
-            if (file_exists("{$this->cfg->defaultMp3Dir}/{$dir}/cover.jpg")) {
-                $albumart = "{$this->cfg->defaultMp3Url}/{$dir}/cover.jpg";
-            } else {
-                $albumart = "images/bigfolder.png";
-            }
+            $albumart = "images/bigfolder.png";
         }
         return $albumart;
     }

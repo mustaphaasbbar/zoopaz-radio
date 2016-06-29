@@ -89,13 +89,6 @@
                         //console.log("Removing: " + JSON.stringify(data));
                     });
                 });
-
-                $(document).ready(function () {
-                    $("body").append("<button class='playme'>playme</button>");
-                    $(document).on("click", ".playme", function () {
-                        $("#mediaplayer").jPlayer("playHead", 50);
-                    });
-                });
             },
             play: function() {
                 if (isRadioMode) {
@@ -108,6 +101,14 @@
 
                 // TODO(k92j9f): This instance is for normal non-radio mode because the play event doesn't fire in radio mode.
                 setPlayTimeout();
+            },
+            stop: function() {
+                // This is how you get the current time.
+                //console.log($("#mediaplayer").data("jPlayer").status.currentTime);
+                var stoppedAt = $("#mediaplayer").data("jPlayer").status.currentTime;
+                console.log("stoppedAt: " + stoppedAt);
+            },
+            pause: function() {
             }
         }
     );
