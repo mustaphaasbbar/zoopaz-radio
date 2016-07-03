@@ -7,23 +7,6 @@ CSS and some UNIX utilties - no database required.
 
 See features and screenshots below.
 
-Download
-========
-[Download](https://github.com/wsams/zoopaz-radio/tags) one of the releases. Or [clone](https://github.com/wsams/zoopaz-radio.git) this repository. [Fork](https://github.com/wsams/zoopaz-radio/fork me here). Have fun playing your music.
-
-Demo Video
-==========
-View a complete demonstration of the current 2.0.0 release.
-
-[zoopaz-radio-2.0.0 demo video](http://vimeo.com/87402935)
-
-Screenshots
-===========
-
-<a target="_blank" href="screenshots/screenshot1.png"><img src="screenshots/thumb_screenshot1.png" alt="screenshot1.png" /></a> &nbsp; <a target="_blank" href="screenshots/screenshot2.png"><img src="screenshots/thumb_screenshot2.png" alt="screenshot2.png" /></a> &nbsp; <a target="_blank" href="screenshots/screenshot3.png"><img src="screenshots/thumb_screenshot3.png" alt="screenshot3.png" /></a>
-
-<a target="_blank" href="screenshots/screenshot4.png"><img src="screenshots/thumb_screenshot4.png" alt="screenshot4.png" /></a> &nbsp; <a target="_blank" href="screenshots/screenshot5.png"><img src="screenshots/thumb_screenshot5.png" alt="screenshot5.png" /></a> &nbsp; <a target="_blank" href="screenshots/screenshot6.png"><img src="screenshots/thumb_screenshot6.png" alt="screenshot6.png" /></a>
-
 Features
 ========
 
@@ -40,6 +23,19 @@ Features
 * Mobile support. Chrome for iOS is supported when screen locked.
 * Keyboard shortcuts: Up/Down for Volume, Left/Right for Track Advancement, Space for Play/Pause, Backspace for Mute.
 * Auto-timeout of player after X amount of time. Presents an "Are you still listening?" message with confirm dialog.
+
+Demo Video
+==========
+View a complete demonstration of the current 2.0.0 release.
+
+[zoopaz-radio-2.0.0 demo video](http://vimeo.com/87402935)
+
+Screenshots
+===========
+
+<a target="_blank" href="screenshots/screenshot1.png"><img src="screenshots/thumb_screenshot1.png" alt="screenshot1.png" /></a> &nbsp; <a target="_blank" href="screenshots/screenshot2.png"><img src="screenshots/thumb_screenshot2.png" alt="screenshot2.png" /></a> &nbsp; <a target="_blank" href="screenshots/screenshot3.png"><img src="screenshots/thumb_screenshot3.png" alt="screenshot3.png" /></a>
+
+<a target="_blank" href="screenshots/screenshot4.png"><img src="screenshots/thumb_screenshot4.png" alt="screenshot4.png" /></a> &nbsp; <a target="_blank" href="screenshots/screenshot5.png"><img src="screenshots/thumb_screenshot5.png" alt="screenshot5.png" /></a> &nbsp; <a target="_blank" href="screenshots/screenshot6.png"><img src="screenshots/thumb_screenshot6.png" alt="screenshot6.png" /></a>
 
 License
 =======

@@ -220,6 +220,7 @@ a.jp-playlist-item:hover {
     height:32px;
     background-repeat:no-repeat;
     color:#3181b7;
+    outline:0;
 }
 
 .jp-play, .jp-play span {
