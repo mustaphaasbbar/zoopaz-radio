@@ -780,7 +780,32 @@ class Streams {
     public function buildPlayerControls($dir) {
         $enc_dir = rawurlencode($dir);
         $permalink = $this->getPermaLink($dir);
-        $this->t->setData(array("dir" => $dir, "enc_dir" => $enc_dir, "permalink" => $permalink));
+
+        $fdb = "{$this->cfg->streamsRootDir}/{$this->auth->userDir}/files.db";
+        $addRemove = "+";
+
+        // Create add-to radio button.
+        $html_dir = preg_replace("/\"/", "\\\"", $dir);
+        $this->t->setData(array("html_dir" => $html_dir));
+
+        $this->t->setFile("{$this->cfg->streamsRootDir}/tmpl/create-add-radio.tmpl");
+        $button = $this->t->compile();
+
+        foreach (file($fdb) as $l) {
+            // Must strip the first slash. `$dir` is passed in like `/MyMusic/Rock/Band/Album`
+            // The radio playlist is a relative path like `MyMusic/Rock/Band/Album`
+            if (preg_match("/" . preg_quote(preg_replace("/^\//", "", $dir), "/") . "/i", trim($l))) {
+                $addRemove = "&ndash;";
+
+                // Create remove radio button.
+                $this->t->setFile("{$this->cfg->streamsRootDir}/tmpl/create-remove-radio.tmpl");
+                $button = $this->t->compile();
+                break;
+            }
+        }
+
+        $this->t->setData(array("data-dir" => $dir, "dir" => $dir, "enc_dir" => $enc_dir, 
+                "permalink" => $permalink, "add-remove-control" => $addRemove, "button" => $button));
         $this->t->setFile("{$this->cfg->streamsRootDir}/tmpl/playerControls.tmpl");
         $controls = $this->t->compile();
         return $controls;
