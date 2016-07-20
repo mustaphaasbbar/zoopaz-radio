@@ -6,7 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('main-player', { path: '/player' });
+  this.route('main-player', { path: '/player/:album' });
 });
 
 export default Router;

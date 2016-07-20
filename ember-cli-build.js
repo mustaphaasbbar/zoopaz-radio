@@ -10,6 +10,12 @@ module.exports = function(defaults) {
   console.log(__dirname);
 
   app.import('bower_components/moment/min/moment.min.js');
+
+  app.import('vendor/jplayer/jplayer/jquery.jplayer.min.js');
+
+  app.import('vendor/zp/css/jplayer.css');
+  app.import('vendor/zp/css/streams.css');
+
   app.import('vendor/zp/js/zoopaz-radio.js');
 
   // Use `app.import` to add additional libraries to the generated
