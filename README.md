@@ -18,8 +18,12 @@ You will need the following things properly installed on your computer.
 * change into the new directory
 * `npm install`
 * `bower install`
+<<<<<<< HEAD
 * [Optional] `brew install watchman`
 * [Optional] `npm install -g phantomjs-prebuilt`
+=======
+* `bower install font-awesome --save`
+>>>>>>> 2055b2ee4078019134258a24a7d0e9ebeed87f99
 
 ## Running / Development
 
