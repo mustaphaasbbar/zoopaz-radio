@@ -1,7 +1,6 @@
 # Zoopaz-radio
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Simple web mp3 player.
 
 ## Prerequisites
 
@@ -15,10 +14,12 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/wsams/zoopaz-radio.git` this repository
 * change into the new directory
 * `npm install`
 * `bower install`
+* [Optional] `brew install watchman`
+* [Optional] `npm install -g phantomjs-prebuilt`
 
 ## Running / Development
 
